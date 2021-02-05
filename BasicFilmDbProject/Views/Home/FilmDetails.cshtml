@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model BasicFilmDbProject.Models.Film
+@{
+    ViewData["Title"] = @Model.FilmTitle;
+    ViewData["PageHeading"] = @Model.FilmTitle;
+}
+
+
+<section>
+
+    <div class="mainImage">
+        <img src="~/images/@Model.FilmImage" alt="@Model.FilmTitle" />
+    </div>
+
+    <div class="filmInfo">
+        <h2>@Model.FilmTitle</h2>
+        <p>@Model.FilmDescription</p>
+        <p>Certificate: @Model.FilmCertificate</p>
+        <p>Streaming Price: £@((Model.FilmPrice).ToString("0.00"))</p>
+
+    </div>
+
+</section>

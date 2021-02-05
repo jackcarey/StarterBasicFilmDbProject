@@ -1,0 +1,16 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Full Film List";
+    ViewData["PageHeading"] = "Full Film List";
+}
+
+
+    <section class="wrap">
+        @foreach (var item in Model)
+        {
+            <p>@item.FilmTitle</p>
+            <p><a asp-controller="Home" asp-action="FilmDetails" asp-route-id="@item.FilmID">Details</a></p>
+        }
+    </section>

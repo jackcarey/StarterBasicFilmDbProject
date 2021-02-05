@@ -1,0 +1,46 @@
+﻿@{
+
+    ViewData["Title"] = "Film Search";
+
+}
+
+    <section class="noflex">
+        <form asp-action="Search" method="get">
+            <h1>Search</h1>
+            <div>
+
+                <label for="SearchString">Search by Title: </label> <input type="text" name="SearchString" id="SearchString" />
+
+                <input type="submit" value="Filter" />
+
+            </div>
+        </form>
+
+        <div>
+
+            @if (ViewData["SearchString"] != null && (string)ViewData["SearchString"] != String.Empty)
+
+            {
+
+                @foreach (var item in Model)
+                {
+                    <p>@item.FilmTitle</p>
+                    <p><a asp-controller="Home" asp-action="FilmDetails" asp-route-id="@item.FilmID">Details</a></p>
+                }
+
+
+
+                if (Model.Count == 0)
+
+
+                {
+
+                    <p>Sorry no matches.</p>
+
+                }
+
+            }
+
+        </div>
+
+    </section>
